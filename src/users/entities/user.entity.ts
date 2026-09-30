@@ -29,9 +29,11 @@ export class User {
   })
   role: UserRole;
 
+  @Exclude()
   @CreateDateColumn()
   createdAt: Date;
 
+  @Exclude()
   @CreateDateColumn()
   updatedAt: Date;
 }
