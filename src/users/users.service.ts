@@ -39,4 +39,17 @@ export class UsersService {
 
     return user;
   }
+
+  async update(userId: string, data: UpdateUserDto): Promise<UserResponseDto> {
+    await this.findOne(userId);
+
+    await this.userRepository.update(userId, {
+      username: data.username,
+      email: data.email,
+      password: data.password,
+      role: data.role,
+    });
+
+    return await this.findOne(userId);
+  }
 }
