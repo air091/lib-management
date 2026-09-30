@@ -26,4 +26,8 @@ export class UsersService {
 
     return user;
   }
+
+  async findAll(): Promise<UserResponseDto[]> {
+    return await this.userRepository.find();
+  }
 }
