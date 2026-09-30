@@ -52,4 +52,9 @@ export class UsersService {
 
     return await this.findOne(userId);
   }
+
+  async remove(userId: string): Promise<void> {
+    await this.findOne(userId);
+    await this.userRepository.delete(userId);
+  }
 }

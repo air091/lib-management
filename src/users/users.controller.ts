@@ -1,7 +1,10 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
+  HttpCode,
+  HttpStatus,
   Param,
   ParseUUIDPipe,
   Patch,
@@ -36,5 +39,11 @@ export class UsersController {
     @Body() body: UpdateUserDto,
   ) {
     return this.usersService.update(userId, body);
+  }
+
+  @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  remove(@Param('id', new ParseUUIDPipe()) userId: string) {
+    return this.usersService.remove(userId);
   }
 }
