@@ -1,6 +1,6 @@
-import { IsString } from 'class-validator';
+import { IsDate, IsString } from 'class-validator';
 
-export class UserResponse {
+export class UserResponseDto {
   @IsString()
   id: string;
 
@@ -9,4 +9,13 @@ export class UserResponse {
 
   @IsString()
   email: string;
+
+  @IsString()
+  role: string;
+
+  @IsDate()
+  createdAt: Date;
+
+  @IsDate()
+  updatedAt: Date;
 }

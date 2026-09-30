@@ -5,6 +5,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { UserRole } from '../enums/user-role.enum.js';
+import { Exclude } from 'class-transformer';
 
 @Entity()
 export class User {
@@ -17,6 +18,7 @@ export class User {
   @Column({ unique: true })
   email: string;
 
+  @Exclude()
   @Column()
   password: string;
 
